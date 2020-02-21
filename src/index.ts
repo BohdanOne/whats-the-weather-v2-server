@@ -1,13 +1,17 @@
+import dotenv from 'dotenv';
+dotenv.config()
+
 import express from 'express';
 import { json } from 'body-parser';
 
 import errorHandler from './middlewares/errorHandler';
+import locations from './routes/locations';
 
 const app = express();
 
 app.use(json());
 
-app.use('/', () => console.log('test'))
+app.use('/locations', locations);
 
 app.use(errorHandler)
 
