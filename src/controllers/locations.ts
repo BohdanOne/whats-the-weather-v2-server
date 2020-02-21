@@ -9,7 +9,7 @@ type GeocodeResponse = {
 };
 
 const getLocation: RequestHandler = (req, res, next) => {
-  const { lat, long } = req.body.coords;
+  const { lat, long } = req.body;
   const query = encodeURI(`${lat},${long}`);
 
   return axios

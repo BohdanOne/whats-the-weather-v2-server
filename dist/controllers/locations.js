@@ -7,7 +7,7 @@ var axios_1 = __importDefault(require("axios"));
 var API_KEY = process.env.OPENCAGE_API_KEY;
 var BASE_URL = 'https://api.opencagedata.com/geocode/v1/';
 var getLocation = function (req, res, next) {
-    var _a = req.body.coords, lat = _a.lat, long = _a.long;
+    var _a = req.body, lat = _a.lat, long = _a.long;
     var query = encodeURI(lat + "," + long);
     return axios_1.default
         .get(BASE_URL + "/json?q=" + query + "&key=" + API_KEY)
