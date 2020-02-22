@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import getLocation from '../controllers/locations';
+import getLocation from '../controllers/location';
 
 const router = Router();
 

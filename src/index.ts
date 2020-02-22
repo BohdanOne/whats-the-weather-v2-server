@@ -5,19 +5,16 @@ import express from 'express';
 import cors from 'cors';
 import { json } from 'body-parser';
 
-import errorHandler from './middlewares/errorHandler';
-import locations from './routes/locations';
+import location from './routes/location';
 import weather from './routes/weather';
 
 const app = express();
 
-app.use(cors());
-app.use(json());
-
-app.use('/locations', locations);
-app.use('/weather', weather);
-
-app.use(errorHandler)
+app
+  .use(cors())
+  .use(json())
+  .use('/location', location)
+  .use('/weather', weather);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`WTW server listening at port ${PORT}...`));
