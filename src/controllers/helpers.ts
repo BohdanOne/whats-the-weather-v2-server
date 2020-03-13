@@ -47,20 +47,20 @@ export const formatForecastResponse = (data: IForecastListRes, lang: string): IF
 
 const precipitationWeather = (data: ICurrentWeatherRes, lang: string): string => {
   if (data.rain) {
-    return `${lang === 'en' ? 'rain' : 'deszcz'} ${data.rain['1h']}mm`;
+    return `${lang === 'en' ? 'rain' : 'deszcz'} ${data.rain['1h'] || '0'}mm`;
   }
   if (data.snow) {
-    return `${lang === 'en' ? 'snow' : 'śnieg'} ${data.snow['1h']}mm`;
+    return `${lang === 'en' ? 'snow' : 'śnieg'} ${data.snow['1h'] || '0'}mm`;
   }
   return '0';
 };
 
 const precipitationForecast = (data: IForecastRes, lang: string): string => {
   if (data.rain) {
-    return `${lang === 'en' ? 'rain' : 'deszcz'} ${data.rain['3h']}mm`;
+    return `${lang === 'en' ? 'rain' : 'deszcz'} ${data.rain['3h'] || '0'}mm`;
   }
   if (data.snow) {
-    return `${lang === 'en' ? 'snow' : 'śnieg'} ${data.snow['3h']}mm`;
+    return `${lang === 'en' ? 'snow' : 'śnieg'} ${data.snow['3h'] || '0'}mm`;
   }
   return '0';
 };

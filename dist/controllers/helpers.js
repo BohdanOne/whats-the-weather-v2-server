@@ -42,19 +42,19 @@ exports.formatForecastResponse = function (data, lang) {
 };
 var precipitationWeather = function (data, lang) {
     if (data.rain) {
-        return (lang === 'en' ? 'rain' : 'deszcz') + " " + data.rain['1h'] + "mm";
+        return (lang === 'en' ? 'rain' : 'deszcz') + " " + (data.rain['1h'] || '0') + "mm";
     }
     if (data.snow) {
-        return (lang === 'en' ? 'snow' : 'śnieg') + " " + data.snow['1h'] + "mm";
+        return (lang === 'en' ? 'snow' : 'śnieg') + " " + (data.snow['1h'] || '0') + "mm";
     }
     return '0';
 };
 var precipitationForecast = function (data, lang) {
     if (data.rain) {
-        return (lang === 'en' ? 'rain' : 'deszcz') + " " + data.rain['3h'] + "mm";
+        return (lang === 'en' ? 'rain' : 'deszcz') + " " + (data.rain['3h'] || '0') + "mm";
     }
     if (data.snow) {
-        return (lang === 'en' ? 'snow' : 'śnieg') + " " + data.snow['3h'] + "mm";
+        return (lang === 'en' ? 'snow' : 'śnieg') + " " + (data.snow['3h'] || '0') + "mm";
     }
     return '0';
 };
