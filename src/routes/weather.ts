@@ -4,6 +4,6 @@ import { getCurrentWeather } from '../controllers/weather';
 
 const router = Router();
 
-router.post('/current', getCurrentWeather);
+router.post('/', getCurrentWeather);
 
 export default router;

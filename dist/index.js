@@ -10,11 +10,13 @@ var cors_1 = __importDefault(require("cors"));
 var body_parser_1 = require("body-parser");
 var location_1 = __importDefault(require("./routes/location"));
 var weather_1 = __importDefault(require("./routes/weather"));
+var forecast_1 = __importDefault(require("./routes/forecast"));
 var app = express_1.default();
 app
     .use(cors_1.default())
     .use(body_parser_1.json())
     .use('/location', location_1.default)
-    .use('/weather', weather_1.default);
+    .use('/weather', weather_1.default)
+    .use('/forecast', forecast_1.default);
 var PORT = process.env.PORT || 8080;
 app.listen(PORT, function () { return console.log("WTW server listening at port " + PORT + "..."); });

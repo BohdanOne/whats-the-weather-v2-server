@@ -1,16 +1,16 @@
 import { RequestHandler } from 'express';
-import { ILocation, IReqBody } from '../models/location';
+import { ILocationResponse, IReqBodyLocation } from '../types';
 import axios, { AxiosResponse } from 'axios';
 
 const API_KEY = process.env.OPENCAGE_API_KEY;
 const BASE_URL = 'https://api.opencagedata.com/geocode/v1/';
 
 const getLocation: RequestHandler = async (req, res): Promise<void> => {
-  const { lat, long } = req.body as IReqBody;
+  const { lat, long } = req.body as IReqBodyLocation;
   const query: string = encodeURI(`${lat},${long}`);
 
   try {
-    const response: AxiosResponse<ILocation> = await axios.get(
+    const response: AxiosResponse<ILocationResponse> = await axios.get(
       `${BASE_URL}/json?q=${query}&key=${API_KEY}`
     );
 

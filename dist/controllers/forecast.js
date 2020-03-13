@@ -42,8 +42,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var helpers_1 = require("./helpers");
 var axios_1 = __importDefault(require("axios"));
 var API_KEY = process.env.OPENWEATHERMAP_API_KEY;
-var BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
-exports.getCurrentWeather = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+var BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast';
+exports.getForecast = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, location, language, response, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
@@ -56,7 +56,7 @@ exports.getCurrentWeather = function (req, res) { return __awaiter(void 0, void 
             case 2:
                 response = _b.sent();
                 if (response.data) {
-                    res.status(200).send(helpers_1.formatWeatherResponse(response.data, language));
+                    res.status(200).send(helpers_1.formatForecastResponse(response.data, language));
                 }
                 return [3 /*break*/, 4];
             case 3:
