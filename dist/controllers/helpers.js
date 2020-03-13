@@ -24,6 +24,7 @@ exports.formatForecastResponse = function (data, lang) {
     return dailyForecastAtNoon.map(function (forecast) {
         return {
             day: decodeDay(forecast.dt_txt, lang),
+            date: forecast.dt_txt.slice(0, 9),
             icon: forecast.weather[0].icon,
             description: forecast.weather[0].description,
             temp: forecast.main.temp.toFixed(1) + "\u00B0C",
@@ -83,5 +84,5 @@ var decodeDay = function (date, lang) {
     else {
         days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     }
-    return days[new Date(date).getDay()] + " " + date.slice(0, 10);
+    return "" + days[new Date(date).getDay()];
 };

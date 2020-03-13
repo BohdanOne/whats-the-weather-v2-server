@@ -75,4 +75,5 @@ export interface IWeather {
 
 export interface IForecast extends IWeather {
   day: string;
+  date: string;
 }

@@ -28,6 +28,7 @@ export const formatForecastResponse = (data: IForecastListRes, lang: string): IF
   return dailyForecastAtNoon.map(forecast => {
     return {
       day: decodeDay(forecast.dt_txt, lang),
+      date: forecast.dt_txt.slice(0, 9),
       icon: forecast.weather[0].icon,
       description: forecast.weather[0].description,
       temp: `${forecast.main.temp.toFixed(1)}°C`,
@@ -84,5 +85,5 @@ const decodeDay = (date: string, lang: string): string => {
     days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   }
 
-  return `${days[new Date(date).getDay()]} ${date.slice(0, 10)}`;
+  return `${days[new Date(date).getDay()]}`;
 }
